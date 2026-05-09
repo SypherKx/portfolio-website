@@ -47,8 +47,8 @@ const PROJECTS = [
 ]
 
 const TIMELINE = [
-  { y: '2024 —', t: 'Website Co-Head', o: 'PSIT Ignitia & Footprints 2K26', d: 'Architecting and shipping fest websites; leading designers and developers; delivered immersive experiences with 99.9% uptime during live events.' },
-  { y: '2024 —', t: 'Head, Technical Design & Development', o: 'PSIT Sports Club', d: 'Owning the digital identity of the club. Branding systems, web rollouts, and registration platforms for inter-college tournaments.' },
+  { y: '2026', t: 'Website Co-Head', o: 'PSIT Ignitia & Footprints 2K26', d: 'Architecting and shipping fest websites; leading designers and developers; delivered immersive experiences with 99.9% uptime during live events.' },
+  { y: '2024 — 25', t: 'Head, Technical Design & Development', o: 'PSIT Sports Club', d: 'Owning the digital identity of the club. Branding systems, web rollouts, and registration platforms for inter-college tournaments.' },
   { y: '2023 — 27', t: 'B.Tech, Information Technology', o: 'Pranveer Singh Institute of Technology', d: 'Pursuing IT with a sharp focus on Data Analytics, Machine Learning and Quantitative Finance. Active in coding contests and open-source.' }
 ]
 
@@ -90,27 +90,32 @@ function MobileMenu() {
 
   return (
     <>
-      <button onClick={() => setOpen(true)} className="flex items-center gap-2 border border-white/10 bg-white/5 backdrop-blur-md px-4 py-2 rounded-full hover:bg-white/10 transition-all active:scale-95">
+      <button 
+        onClick={() => { console.log('Menu Clicked'); setOpen(true); }} 
+        className="relative z-50 flex items-center gap-2 border border-line bg-bg2/80 backdrop-blur-md px-4 py-2 rounded-full hover:bg-bg2 transition-all active:scale-95"
+      >
         <Menu size={14} className="text-accent" />
-        <span className="font-mono text-[10px] uppercase tracking-wider text-white/90">Menu</span>
+        <span className="font-mono text-[10px] uppercase tracking-wider text-ink">Menu</span>
       </button>
 
       <AnimatePresence>
         {open && (
           <motion.div 
-            initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-[100] bg-black/60 backdrop-blur-[32px] flex flex-col p-6 border-b border-white/10 overflow-hidden"
+            initial={{ opacity: 0, y: -20 }} 
+            animate={{ opacity: 1, y: 0 }} 
+            exit={{ opacity: 0, y: -20 }}
+            className="fixed inset-0 z-[100] bg-[#080808]/95 backdrop-blur-[40px] flex flex-col p-6 border-b border-line/20 overflow-hidden"
           >
             {/* Liquid Glass Highlights */}
             <div className="absolute inset-0 pointer-events-none">
-              <div className="absolute -top-1/4 -left-1/4 w-[150%] h-[150%] bg-gradient-to-br from-accent/20 via-transparent to-accent/10 opacity-50 blur-[80px] animate-pulse" />
-              <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_-20%,rgba(255,255,255,0.1),transparent_70%)]" />
+              <div className="absolute -top-1/4 -left-1/4 w-[150%] h-[150%] bg-gradient-to-br from-accent/20 via-transparent to-accent/10 opacity-40 blur-[100px] animate-pulse" />
+              <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_-20%,rgba(255,255,255,0.05),transparent_70%)]" />
             </div>
             
             <div className="relative z-10 flex flex-col h-full">
               <div className="flex justify-between items-center mb-12">
-                <span className="text-white/90 font-semibold font-mono text-[11px] uppercase tracking-[0.16em]">Navigation</span>
-                <button onClick={() => setOpen(false)} className="h-10 w-10 border border-white/10 rounded-full flex items-center justify-center hover:bg-white/5 transition-colors text-white">
+                <span className="text-ink font-semibold font-mono text-[11px] uppercase tracking-[0.16em]">Navigation</span>
+                <button onClick={() => setOpen(false)} className="h-10 w-10 border border-line rounded-full flex items-center justify-center hover:bg-bg2 transition-colors text-ink">
                   <X size={18} />
                 </button>
               </div>
@@ -118,16 +123,16 @@ function MobileMenu() {
                 {NAV.map((n, i) => (
                   <a 
                     key={n} href={`#${n.toLowerCase()}`} onClick={() => setOpen(false)}
-                    className="group flex items-baseline gap-4 border-b border-white/5 pb-4"
+                    className="group flex items-baseline gap-4 border-b border-line/50 pb-4"
                   >
-                    <span className="font-mono text-[12px] text-accent/80">{String(i + 1).padStart(2, '0')}</span>
-                    <span className="font-serif text-5xl italic text-white/90 group-hover:text-accent transition-colors group-hover:translate-x-2 transition-transform duration-500">{n}</span>
+                    <span className="font-mono text-[12px] text-accent">{String(i + 1).padStart(2, '0')}</span>
+                    <span className="font-serif text-5xl italic text-ink group-hover:text-accent transition-all group-hover:translate-x-2 duration-500">{n}</span>
                   </a>
                 ))}
               </nav>
-              <div className="mt-auto pt-10 border-t border-white/5 grid grid-cols-2 gap-4 font-mono text-[10px] uppercase tracking-widest text-white/40">
-                <a href="https://github.com/SypherKx" className="hover:text-white transition-colors">GitHub</a>
-                <a href="https://linkedin.com/in/karan730" className="hover:text-white transition-colors">LinkedIn</a>
+              <div className="mt-auto pt-10 border-t border-line/50 grid grid-cols-2 gap-4 font-mono text-[10px] uppercase tracking-widest text-ink-mute">
+                <a href="https://github.com/SypherKx" className="hover:text-ink transition-colors">GitHub</a>
+                <a href="https://linkedin.com/in/karan730" className="hover:text-ink transition-colors">LinkedIn</a>
               </div>
             </div>
           </motion.div>
