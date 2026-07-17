@@ -25,7 +25,7 @@ export function WorkSection() {
                     {p.name}
                   </h3>
                   <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.18em] text-ink-mute">
-                    {p.role} <span className="mx-2">/</span> {p.year}
+                    {p.role}
                   </p>
                 </div>
                 <div className="col-span-12 sm:col-span-6 flex flex-col gap-5 mt-1 sm:mt-2">
